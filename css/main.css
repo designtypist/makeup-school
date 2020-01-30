@@ -1,0 +1,715 @@
+/*
+	Author: James Chung
+	Date: April 2015
+	
+	Table of Content:
+		1. Main Styling
+		2. Header
+			a. Header banner
+			b. Navigation menu
+		3. Main Content 
+			a. Home page styling
+			b. Makeup product styling
+			c. Makeup video styling
+			d. About us styling
+			c. Contact us styling
+		4. Footer
+		5. Cart Display
+		6. Modal Dialog
+		7. Login/Signup
+	
+	Colour Palette:
+		Dirt Brown - #735c40
+		Dark Scarlet - #59343b
+		Dark Terra Cotta - #a64b6c
+		Darker #ffb5c4 - pink
+		#ffb5c4 - #ffb5c4
+		White beige - #f2e8dc
+
+*/
+
+/* --- Main Styling
+---------------------------------------------------------- */
+
+html, body {
+	height: 100%;
+}
+body {
+	width: 100%;
+}
+
+body * {
+	margin: 0;
+	padding: 0;
+}
+
+/* For footer */
+.sticky {
+	min-height: 100%;
+	margin: 0 auto -80px;
+}
+
+.contentWrapper {
+	display: inline-block;
+	margin: 10px;
+	width: 100%;
+}
+
+.floatRight {
+	float: right;
+}
+.floatLeft {
+	float: left;
+}
+	
+/* Styling for success and fail messages */
+.failMsg {
+	background-color: red;
+	color: white;
+	padding: 10px 20px;
+	width: 25%;
+}
+.successMsg {
+	background-color: green;
+	color: white;
+	padding: 10px 20px;
+	width: 25%;
+}
+.successMsg .glyphicon-ok, .glyphicon-remove .failMsg {
+	margin-left: 10px;
+} 
+	
+/* --- Header 
+---------------------------------------------------------- */
+	
+	/******************* Header Banner *******************/
+	#headerBanner {
+		background-image: url("../img/banners/headBanner.jpg");
+		background-size: 100%;
+		background-position: center 60%;
+		margin: 0;
+		padding: 0;
+		height: 120px;
+		width: 100%;
+	}
+	
+	a.mainTitle {
+		display: inline-block;
+		margin: 20px 30px 10px 30px;
+	}
+		.mainTitle img {
+			display: inline;
+			height: 80px;
+			float: left;
+			margin-right: 30px;
+		}
+		.mainTitle div {
+			display: inline;
+			float: left;
+		}
+			.mainTitle h1 {
+				color: white;
+				font-size: 42px;
+				font-family: 'Montserrat', sans-serif;
+				display: block;
+				margin: 0;
+				padding: 0;
+			}
+			.mainTitle p {
+				color: #ffb5c4;
+				font-size: 20px;
+				margin: 0;
+				padding: 0;
+			}
+		
+	.topControls {
+		display: inline-block;
+		position: relative;
+		margin: 0 25px;
+		line-height: 120px;
+	}
+		.loginButt {
+			display: inline-block;
+			padding: 10px;
+			margin-right: 10px;
+		}
+			.loginButt a, .loggButt a:visited {
+				border-radius: 10px;
+				background-color: #ffb5c4;
+				color: white;
+				margin: 0 2px;
+				padding: 5px 15px;
+				font-size: 18px;
+				font-weight: bold;
+				text-decoration: none;
+				text-align: center;
+			}
+			.loginButt a:hover, .loginButt a:active {
+				background-color: white;
+				color: #ffb5c4;
+				text-decoration: none;
+			}
+			.loginButt span {
+				color: white;
+			}
+			.loginButt .username {
+				color: black;
+			}
+		#cart {
+			display: inline-block;
+		}
+			#cart:hover {
+				cursor: pointer;
+			}
+		
+			.glyphicon.glyphicon-shopping-cart {
+				border-radius: 10px;
+				color: white;
+				background-color: #ffb5c4;
+				height: 45px;
+				padding: 15px;
+			}
+			.glyphicon.glyphicon-shopping-cart:hover {
+				color: #ffb5c4;
+				background-color: white;
+			}
+			
+	/******************* Navigation Menu *******************/
+	
+	nav.mainNav {
+		background-color: #ffb5c4;
+		color: white;
+		height: 50px;
+		width: 100%;
+	}
+	
+		/* Reset styles for all children of nav */
+		nav.mainNav * {
+			margin: 0;
+			padding: 0;
+			color: white;
+			text-decoration: none;
+			text-align: center;
+		}
+		
+		/* Nav menu for header */
+		nav.mainNav > ul {
+			margin: 0 auto;
+			width: 80%;
+		}
+		nav.mainNav ul li {
+			display: inline-block;
+			list-style-type: none;
+			overflow: hidden;
+			text-align: center;
+			width: 16%;
+		}
+		nav.mainNav ul li a {
+			color: white;
+			display: block;
+			font-size: 16px;
+			line-height: 50px;
+			text-decoration: none;
+		}
+			nav.mainNav ul li a:hover {
+				background-color: pink;
+				color: white;
+				text-decoration: none;
+			}
+			nav.mainNav ul li a:active {
+				background-color: #ffb5c4;
+				color: white;
+				text-decoration: none;
+			}
+		nav.mainNav li ul {
+			display: none;
+			position: absolute;
+			z-index: 100;
+			width: 80%;
+		}
+
+		nav.mainNav li li {
+			background-color: #ffb5c4;
+			display:block;
+			float: none;
+			height: 45px;
+			line-height: 45px;
+			position: relative;
+			border-bottom: 1px solid white;
+		}
+
+		nav.mainNav li:hover > ul {
+			display: block;
+			float: none;
+		}
+		
+		/* Styling icon for the home button */
+		.glyphicon.glyphicon-home, .glyphicon.glyphicon-envelope {
+			margin-right: 10px;
+		}
+		
+		/* Down arrow for secondary links */
+		.arrow-down {
+			border-left: 5px solid transparent;
+			border-right: 5px solid transparent;
+			border-top: 5px solid white;
+			position: relative;
+			top: 10px;
+			left: 10px;
+		}
+			.arrow-down:hover, .arrow-down:active {
+				color: black;
+			}
+		
+		/* Style links for active page */
+		.mainNav #activePage {
+			background-color: pink;
+		}
+	
+	
+/* --- Main Content 
+---------------------------------------------------------- */		
+	
+	/************************** Home page styling **************************/
+	
+	/* Banner for the Home page */
+	#homeBanner {
+		background-image: url('../img/banners/homeBanner.jpg');
+		background-repeat: no-repeat;
+		background-size: 100%;
+		height: 350px;
+		width: 80%;
+		margin: 0 auto;
+	}
+		.homeBannerInfo {
+			color: white;
+			background-color: rgba(100, 100, 100,0.6);
+			position: relative;
+			top: 245px;
+			padding: 15px 25px;
+		}
+			.homeBannerInfo h2 {
+				font-family: 'Montserrat', sans-serif;
+				font-size: 36px;
+				font-weight: bold;
+				opacity: 1;
+				padding: 0;
+				margin: 0;
+			}
+			.homeBannerInfo p {
+				font-family: 'Montserrat', sans-serif;
+				font-size: 20px;
+				font-weight: normal;
+				opacity: 1;
+				padding: 0;
+				margin: 5px 0;
+			}
+	/************************** Makeup product styling **************************/
+	
+	/* Banner for the Makeup Products page */
+	#productBanner {
+		background-image: url('../img/banners/productBanner.jpg');
+		height: 150px;
+		margin: 15px auto;
+		width: 80%;
+	}
+		#productBanner h3 {
+			color: white;
+			font-size: 36px;
+			position: relative;
+			top: 100px;
+			left: 20px;
+			text-transform: uppercase;
+			text-shadow: 2px 2px black;
+		}
+		
+		.categories {
+			margin: 0 auto;
+			width: 80%;
+			height: 30px;
+			border-bottom: 1px solid #ffb5c4;
+			padding: 0;
+		}
+			.categories ul li:first-of-type {
+				color: black;
+				font-weight: bold;
+			}
+			.categories ul li {
+				font-size: 16px;
+				margin-right: 25px;
+				float: left;
+				list-style-type: none;
+			}
+			.categories ul li a {
+				color: black;
+			}
+	
+	/****** Product Rows Styling ******/
+	.productRows {
+		display: block;
+		margin: 15px auto;
+		border-bottom: 1px solid black;
+		
+		width: 80%;
+	}
+		.productRows article {
+			float: left;
+			margin: 10px;
+			padding: 10px 15px;
+			width: 22%;
+			min-height: 550px;
+			max-height: 600px;
+			border: 2px dotted #ffb5c4;
+		}	
+			/* Product Image */
+			.prodImg {
+				max-height: 300px;
+			}
+			/* Product Price */
+			.productRows h2 {
+				font-size: 32px;
+				margin: 15px 0;
+				padding: 0;
+			}
+			/* Product Name */
+			.productRows h4 {
+				text-decoration: underline;
+				font-size: 18px;
+				margin-bottom: 10px; 
+			}
+			/* Product description */
+			.productRows p {
+				color: grey;
+				font-size: 16px;
+				margin-bottom: 10px;
+			}
+			/* Product ratings */
+			.rating .glyphicon-star {
+				color: black;
+			}
+			.rating .active{
+				color: yellow;
+			}
+			/* Product buttons */
+			.productRows input[type="submit"] {
+				background-color: #ffb5c4;
+				color: white;
+				font-weight: bold;
+				padding: 5px 10px;
+				float: right;
+				margin-bottom: 10px;
+			} 
+				.productRows input[type="submit"]:hover, .productRows input[type="submit"]:active{
+					opacity: 0.8;
+				}
+				
+	/************************** Makeup video styling **************************/
+	
+	/* Banner for the Makeup Videos page */
+	#videoBanner {
+		background-image: url('../img/banners/videoBanner.jpg');
+		background-repeat: no-repeat;
+		background-size: 100%;
+		height: 150px;
+		margin: 20px auto;
+		width: 80%;
+	}
+		#videoBanner h3 {
+			color: white;
+			font-size: 36px;
+			position: relative;
+			top: 100px;
+			left: 15px;
+			text-transform: uppercase;
+		}	
+
+	/****** Video Rows Styling ******/
+	.videoRows {
+		display: block;
+		margin: 0 auto;
+		width: 80%;
+	}
+		.videoRows h3 {
+			text-decoration: underline;
+			margin-bottom: 10px; 
+		}
+		.videoRows a, .videoRows a:visited {
+			float: left;
+			margin: 10px;
+			width: 31%;
+			height: 325px;
+			text-decoration: none;
+		}
+			.videoRows a:hover, .videoRows a:active {
+				opacity: 0.6;
+				text-decoration: none;
+			}
+			.vidContainer {
+				background-color: grey;
+				height: 200px;
+				overflow: hidden;
+				margin-bottom: 10px;
+			}
+				.vidContainer img {
+					background-color: grey;
+					width: 100%;
+					margin-bottom: 10px;
+					vertical-align: middle;
+					position: relative;
+					bottom: 15%;
+				}
+			.videoRows h4 {
+				color: black;
+				margin: 5px 0; 
+				font-size: 18px;
+				text-decoration: underline;
+			}
+				.videoRows h4:hover {
+					color: #03c;
+				}
+			.videoRows p {
+				color: grey;
+				font-size: 15px;
+				margin: 5px 0 10px 0;
+			}
+				.videoRows p:first-of-type {
+					color: black;
+				}
+			
+			
+	
+	/************************** About us styling **************************/
+	
+	/* Banner for the About Us page */
+	#aboutBanner {
+		background-image: url("../img/banners/aboutUsBanner.jpg");
+		background-position: top center;
+		background-size: 100%;
+		background-repeat: no-repeat;
+		height: 350px;
+		margin: 10px auto;
+		width: 80%;
+	}
+	
+	#aboutSect {
+		margin: 0 auto;
+		width: 80%;
+	}
+		#aboutSect p {
+			text-indent: 50px;
+			font-size: 16px;
+		}	
+		
+	/************************** Contact us styling **************************/
+	
+	/* Banner for the About Us page */
+	#contactBanner {
+		background-image: url("../img/banners/contactUsBanner.jpg");
+		background-position: top center;
+		background-size: 100%;
+		background-repeat: no-repeat;
+		min-height: 350px;
+		margin: 10px auto;
+		width: 80%;
+	}
+	
+	#contactSect {
+		margin: 0 auto;
+		width: 80%;
+	}	
+		.contactForm {
+			padding: 15px 0;
+			width: 70%;
+		}
+			.contactForm p {
+				font-size: 16px;
+			}
+			.contactForm form {
+				margin: 5px 0 15px 0;
+			}	
+			/* Input fields for name and email */ 
+			.contactForm form span {
+				display: inline-block;
+				margin: 10px 10px 10px 0;
+				width: 45%;
+			}	
+			.contactForm form span label {
+				display: block;
+			}
+			
+			/* Textarea for message */ 
+			.contactForm form label[for="message"] {
+				display: block;
+			}
+			.contactForm form input[type="text"] {
+				width: 90%;
+			}
+			.contactForm form textarea {
+				display: block;
+				width: 100%;
+				padding: 0;
+				margin: 0;
+			}
+			
+			/* Styling the submit button */
+			.contactForm input[type="submit"] {
+				background-color: #ffb5c4;
+				color: white;
+				border: none;
+				margin-top: 10px;
+				padding: 10px 50px;
+			}
+		
+
+		/* Follow us section */		
+		.followUs {
+			width: 40%;
+			padding: 15px 0;
+		}
+			.followUs p {
+				font-size: 16px;
+			}
+			.followUs img {
+				height: 45px;
+			}
+/* --- Footer 
+---------------------------------------------------------- */
+footer {
+	margin-top: 15px;
+	background-color: #ffb5c4;
+	color: white;
+	width: 100%;
+}	
+	footer, .push {
+		height: 80px;
+	}
+	footer p {
+		clear: both;
+		text-align: center;
+		padding: 5px 0;
+		margin: 0;
+	}	
+	
+	.mainFooterCon {
+		padding: 10px 0 5px 0;
+		text-align: center;
+	}
+		/* Social media styling */
+		.socMedia {
+				display: inline-block;
+				color: white;
+				border-right: 1px solid white;
+				padding-right: 15px;
+			}
+			.socMedia h5 {
+				display: inline-block;
+				margin: 0 10px 0 0;
+				padding: 0;
+				
+			}
+			.socMedia img {
+				display: inline;
+				height: 25px;
+				margin: 0 2px;
+				vertical-align: middle;
+			}
+		
+		/* Sub links styling */
+		.footerLinks {
+			display: inline-block;
+			margin-left: 15px;
+		}
+			.footerLinks ul {
+				list-style-type: none;
+				text-align: center;
+				margin: 0;
+			}
+			.footerLinks ul li {
+				display: inline-block;
+				margin-right: 30px;
+			}
+			.footerLinks ul li a {
+				color: white;
+			}
+	
+/* --- Cart Display  
+---------------------------------------------------------- */
+	.cartDisplay {
+		text-align: center;
+	}
+	.cartDisplay table {
+		width: 80%;
+		margin: 0 auto;
+	}
+	.cartDisplay tr td {
+		height: 30px;
+		border: 1px solid black;
+		padding: 5px 10px;
+		font-size: 15px;
+	}
+	.cartDisplay tr:first-of-type {
+		background-color: #ffb5c4;
+		height: 40px;
+	}
+	.cartDisplay th {
+		text-align: center;
+		line-height: 40px;
+		font-size: 18px;
+		font-weight: bold;
+		border: 1px solid black;
+	}
+	tr.totalCart td {
+		font-weight: bold;
+		font-size: 18px;
+	}
+	tr.totalCart td:first-of-type {
+		text-align: right;
+	}
+	.cartDisplay tr:last-of-type td {
+		border: 0;
+	}
+	.checkout {
+		font-size: 16px;
+		text-align: right;
+		border: 0px;
+	}
+	.checkout button {
+		margin: 5px;
+		padding: 3px 15px;
+	}
+	
+/* --- Styling for modal
+---------------------------------------------------------- */
+#shoppingCart {
+	display: none;
+	text-align: center;
+}
+#shoppingCart span {
+	font-size: 28px;
+}
+
+/* --- Styling for Login/Signup
+---------------------------------------------------------- */
+
+#login, #signup  {
+	margin: 25px auto;
+	text-align: center;
+	width: 40%;
+}
+	#login legend, #signup legend {
+		font-size: 30px;
+	}
+	#login p, #login label, #signup p, #signup label {
+		font-size: 16px;
+	}
+	#login input[type="submit"], #signup input[type="submit"] {
+		margin: 5px 0;
+		padding: 5px 15px;
+	}
+	#login .failMsg, #login .successMsg, #signup .failMsg, #signup .successMsg {
+		margin: 10px auto;
+		width: 60%;
+	}
+	#signup a {
+		color: pink;
+	}
